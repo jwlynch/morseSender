@@ -25,10 +25,10 @@ for n in range(wavetable_length):
 
 p = pyaudio.PyAudio()
 
-stream = p.open(format=p.get_format_from_width(wf.getsampwidth()),
-                channels=wf.getnchannels(),
-                rate=wf.getframerate(),
-                output=True)
+#stream = p.open(format=p.get_format_from_width(wf.getsampwidth()),
+#                channels=wf.getnchannels(),
+#                rate=wf.getframerate(),
+#                output=True)
 
 #data = wf.readframes(CHUNK)
 
