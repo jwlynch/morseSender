@@ -6,8 +6,14 @@
 import pyaudio
 import wave
 import sys
+import numpy as np
 
 CHUNK = 1024
+waveform = np.sin
+wavetable_length = 64
+wave_table = np.zeros((wavetable_length,))
+for n in range(wavetable_length):
+    wave_table[n] = waveform(2 * np.pi * n / wavetable_length)
 
 if len(sys.argv) < 2:
     print("Plays a wave file.\n\nUsage: %s filename.wav" % sys.argv[0])
