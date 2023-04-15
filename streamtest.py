@@ -4,7 +4,6 @@
 # https://people.csail.mit.edu/hubert/pyaudio/#examples
 
 import pyaudio
-import wave
 import sys
 import numpy as np
 
@@ -33,10 +32,10 @@ stream = p.open(format=p.get_format_from_width(wf.getsampwidth()),
 
 #data = wf.readframes(CHUNK)
 
+#while data != '':
+#    stream.write(data)
+#    data = wf.readframes(CHUNK)
 
-while data != '':
-    stream.write(data)
-    data = wf.readframes(CHUNK)
 
 #stream.stop_stream()
 #stream.close()
