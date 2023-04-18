@@ -25,6 +25,9 @@ channels = 1
 t = 3
 f = 440
 
+index = 0.0
+indexIncrement = f * wavetable_length / sample_rate
+
 total_samples = round(t * sample_rate)
 
 #wf = wave.open(sys.argv[1], 'rb')
