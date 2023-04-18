@@ -34,11 +34,13 @@ total_samples = round(t * sample_rate)
 
 p = pyaudio.PyAudio()
 
-#stream = p.open(format=p.get_format_from_width(wf.getsampwidth()),
-#                channels=wf.getnchannels(),
-#                rate=wf.getframerate(),
-#                output=True)
 sample_format = p.get_format_from_width(sample_width)
+stream = p.open(
+                    format=p.get_format_from_width(sample_width),
+                    channels=channels,
+                    rate=sample_rate,
+                    output=True
+               )
 
 #data = wf.readframes(CHUNK)
 
@@ -51,8 +53,8 @@ sample_format = p.get_format_from_width(sample_width)
 #    index += indexIncrement
 #    index %= wavetable_length
 
-#stream.stop_stream()
-#stream.close()
+stream.stop_stream()
+stream.close()
 
 p.terminate()
 
