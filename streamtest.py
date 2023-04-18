@@ -35,12 +35,20 @@ total_samples = round(t * sample_rate)
 p = pyaudio.PyAudio()
 
 sample_format = p.get_format_from_width(sample_width)
+print(f"sample format is {sample_format}")
+
+print("after p = pyaudio.PyAudio()")
+
+print("now create stream")
+
 stream = p.open(
                     format=p.get_format_from_width(sample_width),
                     channels=channels,
                     rate=sample_rate,
                     output=True
                )
+
+print("done creating stream")
 
 #data = wf.readframes(CHUNK)
 
@@ -52,13 +60,24 @@ stream = p.open(
 #    stream.write(wave_table[int(np.floor(index))])
 #    index += indexIncrement
 #    index %= wavetable_length
+print(f"type of wave_table element is {type(wave_table[0])}")
+sample_container = np.zeros((1,))
+print(f"tuple fed to stream.write is {(sample_container, 1)}")
+
 # for n in range(total_samples):
 #     print(f"sin: {wave_table[int(np.floor(index))]}, index: {index}")
 #     index += indexIncrement
 #     index %= wavetable_length
 
+print("before stop and close stream")
 stream.stop_stream()
 stream.close()
 
+print('after stop and close stream')
+
+print("before p.terminate()")
+
 p.terminate()
+
+print("after p.terminate()")
 
