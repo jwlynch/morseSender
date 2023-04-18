@@ -56,10 +56,6 @@ print("done creating stream")
 #    stream.write(data)
 #    data = wf.readframes(CHUNK)
 
-#for n in total_samples:
-#    stream.write(wave_table[int(np.floor(index))])
-#    index += indexIncrement
-#    index %= wavetable_length
 print(f"type of wave_table element is {type(wave_table[0])}")
 sample_container = np.zeros((1,))
 print(f"tuple fed to stream.write is {(sample_container, 1)}")
@@ -68,6 +64,13 @@ print(f"tuple fed to stream.write is {(sample_container, 1)}")
 #     print(f"sin: {wave_table[int(np.floor(index))]}, index: {index}")
 #     index += indexIncrement
 #     index %= wavetable_length
+
+for n in range(total_samples):
+    sample_container = np.zeros((1,))
+    sample_container[0] = wave_table[int(np.floor(index))]
+    stream.write(sample_container.astype(np.float32), 1)
+    index += indexIncrement
+    index %= wavetable_length
 
 print("before stop and close stream")
 stream.stop_stream()
