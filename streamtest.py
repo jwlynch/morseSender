@@ -20,6 +20,8 @@ for n in range(wavetable_length):
 #    sys.exit(-1)
 
 sample_rate = 44100
+sample_width = 4
+channels = 1
 t = 3
 f = 440
 
