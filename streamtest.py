@@ -52,6 +52,10 @@ stream = p.open(
 #    stream.write(wave_table[int(np.floor(index))])
 #    index += indexIncrement
 #    index %= wavetable_length
+# for n in range(total_samples):
+#     print(f"sin: {wave_table[int(np.floor(index))]}, index: {index}")
+#     index += indexIncrement
+#     index %= wavetable_length
 
 stream.stop_stream()
 stream.close()
