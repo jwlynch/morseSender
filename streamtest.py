@@ -38,6 +38,7 @@ p = pyaudio.PyAudio()
 #                channels=wf.getnchannels(),
 #                rate=wf.getframerate(),
 #                output=True)
+sample_format = p.get_format_from_width(sample_width)
 
 #data = wf.readframes(CHUNK)
 
