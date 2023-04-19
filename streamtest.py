@@ -7,11 +7,14 @@ import pyaudio
 import sys
 import numpy as np
 
-waveform = np.sin
-wavetable_length = 64
-wave_table = np.zeros((wavetable_length,))
-for n in range(wavetable_length):
-    wave_table[n] = waveform(2 * np.pi * n / wavetable_length)
+def mk_sine_table():
+    waveform = np.sin
+    wavetable_length = 64
+    wave_table = np.zeros((wavetable_length,))
+    for n in range(wavetable_length):
+        wave_table[n] = waveform(2 * np.pi * n / wavetable_length)
+
+    return wave_table
 
 #CHUNK = 1024
 
