@@ -44,12 +44,21 @@ print("after p = pyaudio.PyAudio()")
 
 print("now create stream")
 
-stream = p.open(
-                    format=p.get_format_from_width(sample_width),
-                    channels=channels,
-                    rate=sample_rate,
-                    output=True
-               )
+def open_stream(py_audio, sample_rate):
+    # samples are 32 bit floats
+    sample_width = 4
+    sample_format = py_audio.get_format_from_width(sample_width)
+
+    # Stream should have one channel
+    channels = 1
+    stream = py_audio.open(
+                        format=sample_format,
+                        channels=channels,
+                        rate=sample_rate,
+                        output=True
+                          )
+
+    return stream
 
 print("done creating stream")
 
@@ -76,8 +85,10 @@ for n in range(total_samples):
     index %= wavetable_length
 
 print("before stop and close stream")
-stream.stop_stream()
-stream.close()
+
+def close_stream(stream):
+    stream.stop_stream()
+    stream.close()
 
 print('after stop and close stream')
 
