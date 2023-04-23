@@ -63,29 +63,6 @@ print("done creating stream")
 #     index += indexIncrement
 #     index %= wavetable_length
 
-def tone(stream, sample_rate, tone_dur, tone_freq):
-    # Sine table
-    wave_table = mk_sine_table()
-
-    # Length of wave table
-    wavetable_length = len(wave_table)
-
-    # Current index into sine table
-    index = 0.0
-
-    # How much to increment index for each sample
-    indexIncrement = tone_freq * wavetable_length / sample_rate
-
-    # Total number of samples to send to the stream
-    total_samples = round(tone_dur * sample_rate)
-
-    for n in range(total_samples):
-        sample_container = np.zeros((1,))
-        sample_container[0] = wave_table[int(np.floor(index))]
-        stream.write(sample_container.astype(np.float32), 1)
-        index += indexIncrement
-        index %= wavetable_length
-
 print("before stop and close stream")
 
 print('after stop and close stream')
