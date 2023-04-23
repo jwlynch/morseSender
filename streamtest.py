@@ -7,7 +7,7 @@ import pyaudio
 import sys
 import numpy as np
 
-from beeps import open_stream, close_stream
+from beeps import open_stream, close_stream, tone
 
 def mk_sine_table():
     waveform = np.sin
