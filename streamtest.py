@@ -37,8 +37,6 @@ def mk_sine_table():
 
 # wf = wave.open(sys.argv[1], 'rb')
 
-p = pyaudio.PyAudio()
-
 # sample_format = p.get_format_from_width(sample_width)
 # print(f"sample format is {sample_format}")
 
