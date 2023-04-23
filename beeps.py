@@ -16,3 +16,7 @@ def open_stream(py_audio, sample_rate):
                           )
 
     return stream
+
+def close_stream(stream):
+    stream.stop_stream()
+    stream.close()

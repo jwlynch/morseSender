@@ -7,6 +7,8 @@ import pyaudio
 import sys
 import numpy as np
 
+from beeps import open_stream, close_stream
+
 def mk_sine_table():
     waveform = np.sin
     wavetable_length = 64
@@ -85,10 +87,6 @@ def tone(stream, sample_rate, tone_dur, tone_freq):
         index %= wavetable_length
 
 print("before stop and close stream")
-
-def close_stream(stream):
-    stream.stop_stream()
-    stream.close()
 
 print('after stop and close stream')
 
