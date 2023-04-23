@@ -1,6 +1,14 @@
 import pyaudio
 import numpy as np
 
+def mk_pyaudio():
+    py_audio = pyaudio.PyAudio()
+
+    return py_audio
+
+def stop_pyaudio(py_audio):
+    py_audio.terminate()
+
 def open_stream(py_audio, sample_rate):
     # samples are 32 bit floats
     sample_width = 4
