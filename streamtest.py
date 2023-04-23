@@ -42,6 +42,8 @@ def mk_sine_table():
 
 print("before p = pyaudio.PyAudio()")
 
+p = mk_pyaudio()
+
 print("after p = pyaudio.PyAudio()")
 
 print("now create stream")
@@ -68,6 +70,8 @@ print("before stop and close stream")
 print('after stop and close stream')
 
 print("before p.terminate()")
+
+stop_pyaudio(p)
 
 print("after p.terminate()")
 
