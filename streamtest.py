@@ -40,6 +40,8 @@ def mk_sine_table():
 # sample_format = p.get_format_from_width(sample_width)
 # print(f"sample format is {sample_format}")
 
+print("before p = pyaudio.PyAudio()")
+
 print("after p = pyaudio.PyAudio()")
 
 print("now create stream")
