@@ -67,7 +67,5 @@ print('after stop and close stream')
 
 print("before p.terminate()")
 
-p.terminate()
-
 print("after p.terminate()")
 
