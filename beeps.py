@@ -2,14 +2,17 @@ import pyaudio
 import numpy as np
 
 def mk_pyaudio():
+    """make and return a pyaudio object"""
     py_audio = pyaudio.PyAudio()
 
     return py_audio
 
 def stop_pyaudio(py_audio):
+    """close/terminate a pyaudio object"""
     py_audio.terminate()
 
 def open_stream(py_audio, sample_rate):
+    """create and return a stream object at specified sample rate"""
     # samples are 32 bit floats
     sample_width = 4
     sample_format = py_audio.get_format_from_width(sample_width)
@@ -26,10 +29,12 @@ def open_stream(py_audio, sample_rate):
     return stream
 
 def close_stream(stream):
+    """close a stream"""
     stream.stop_stream()
     stream.close()
 
 def tone_wavtbl(wave_table, stream, sample_rate, tone_dur, tone_freq):
+    """play tone with wave in wave_table, and with specified sample rate, duration and frequency"""
     # Length of wave table
     wavetable_length = len(wave_table)
 
