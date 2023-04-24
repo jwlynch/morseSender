@@ -52,6 +52,12 @@ stream = open_stream(p, 48000)
 
 print("done creating stream")
 
+print("before calling tone()")
+
+tone(stream, 48000, 2, 220)
+
+print("after calling tone()")
+
 #data = wf.readframes(CHUNK)
 
 #while data != '':
