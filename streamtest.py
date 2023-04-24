@@ -18,6 +18,12 @@ def mk_sine_table():
 
     return wave_table
 
+def tone(stream, sample_rate, tone_dur, tone_freq):
+    # Sine table
+    wave_table = mk_sine_table()
+
+    tone_wavtbl(wave_table, stream, sample_rate, tone_dur, tone_freq)
+
 #CHUNK = 1024
 
 #if len(sys.argv) < 2:
