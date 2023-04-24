@@ -66,7 +66,6 @@ dah_time = char_space_time
 def dit():
     tone(stream, 48000, dit_time, 440)
 
-print("after calling tone()")
 def dah():
     tone(stream, 48000, dah_time, 440)
 
