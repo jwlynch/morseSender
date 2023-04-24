@@ -63,8 +63,21 @@ char_space_time = dit_time * 3
 word_space_time = dit_time * 7
 dah_time = char_space_time
 
+def dit():
+    tone(stream, 48000, dit_time, 440)
 
 print("after calling tone()")
+def dah():
+    tone(stream, 48000, dah_time, 440)
+
+def word_space():
+    tone(stream, 48000, word_space_time, 0)
+
+def char_space():
+    tone(stream, 48000, char_space_time, 0)
+
+def el_space():
+    tone(stream, 48000, dit_time, 0)
 
 #data = wf.readframes(CHUNK)
 
