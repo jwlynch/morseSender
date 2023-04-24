@@ -48,6 +48,8 @@ print("after p = pyaudio.PyAudio()")
 
 print("now create stream")
 
+stream = open_stream(p, 48000)
+
 print("done creating stream")
 
 #data = wf.readframes(CHUNK)
@@ -66,6 +68,8 @@ print("done creating stream")
 #     index %= wavetable_length
 
 print("before stop and close stream")
+
+close_stream(stream)
 
 print('after stop and close stream')
 
