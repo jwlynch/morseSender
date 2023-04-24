@@ -58,7 +58,10 @@ stream = open_stream(p, 48000)
 
 print("done creating stream")
 
-print("before calling tone()")
+dit_time = 0.06 # 60 ms
+char_space_time = dit_time * 3
+word_space_time = dit_time * 7
+dah_time = char_space_time
 
 tone(stream, 48000, 2, 220)
 
