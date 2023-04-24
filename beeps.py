@@ -29,7 +29,7 @@ def close_stream(stream):
     stream.stop_stream()
     stream.close()
 
-def tone(stream, sample_rate, tone_dur, tone_freq):
+def tone_wavtbl(stream, sample_rate, tone_dur, tone_freq):
     # Sine table
     wave_table = mk_sine_table()
 
