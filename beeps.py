@@ -29,10 +29,7 @@ def close_stream(stream):
     stream.stop_stream()
     stream.close()
 
-def tone_wavtbl(stream, sample_rate, tone_dur, tone_freq):
-    # Sine table
-    wave_table = mk_sine_table()
-
+def tone_wavtbl(wave_table, stream, sample_rate, tone_dur, tone_freq):
     # Length of wave table
     wavetable_length = len(wave_table)
 
