@@ -97,6 +97,12 @@ def cq():
     el_space()
     dah()
 
+print("before calling cq()")
+
+cq()
+
+print("after calling cq()")
+
 #data = wf.readframes(CHUNK)
 
 #while data != '':
