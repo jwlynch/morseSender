@@ -63,7 +63,6 @@ char_space_time = dit_time * 3
 word_space_time = dit_time * 7
 dah_time = char_space_time
 
-tone(stream, 48000, 2, 220)
 
 print("after calling tone()")
 
