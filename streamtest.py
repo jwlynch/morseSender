@@ -81,15 +81,15 @@ cq()
 
 print("after calling cq()")
 
-print("before stop and close stream")
+print("before close_stream(stream)")
 
 close_stream(stream)
 
-print('after stop and close stream')
+print('after close_stream(stream)')
 
-print("before p.terminate()")
+print("before stop_pyaudio(p)")
 
 stop_pyaudio(p)
 
-print("after p.terminate()")
+print("after stop_pyaudio(p)")
 
