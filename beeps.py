@@ -39,7 +39,7 @@ def read_beeps_config_file():
         config.read(cfg_path)
     else:
         print("Error: No config file found")
-        sys.exit(1)
+        raise FileNotFoundError("beeps config file")
 
 def mk_pyaudio():
     """make and return a pyaudio object"""
