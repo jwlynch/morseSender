@@ -9,6 +9,8 @@ import numpy as np
 
 from beeps import open_stream, close_stream, tone_wavtbl, mk_pyaudio, stop_pyaudio, read_beeps_config_file
 
+read_beeps_config_file()
+
 def mk_sine_table():
     waveform = np.sin
     wavetable_length = 64
