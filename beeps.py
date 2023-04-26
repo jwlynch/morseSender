@@ -34,7 +34,9 @@ def read_beeps_config_file():
 
     if cfg:
         # read config file
-        pass
+        config = ConfigParser()
+
+        config.read(cfg_path)
     else:
         print("Error: No config file found")
         sys.exit(1)
