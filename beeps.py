@@ -5,6 +5,8 @@ import pyaudio
 import numpy as np
 
 def read_beeps_config_file():
+    result = None # default (no config file will cause result to be None)
+
     # first, find config file if it exists, in one of three places:
 
     home_dir = os.path.expanduser('~')
@@ -33,6 +35,8 @@ def read_beeps_config_file():
         cfg = True
 
     if cfg:
+        result = {} # put config values in this dict
+
         # read config file
         config = ConfigParser()
 
@@ -40,6 +44,8 @@ def read_beeps_config_file():
     else:
         print("Error: No config file found")
         raise FileNotFoundError("beeps config file")
+    
+    return result
 
 def mk_pyaudio():
     """make and return a pyaudio object"""
