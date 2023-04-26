@@ -9,7 +9,9 @@ import numpy as np
 
 from beeps import open_stream, close_stream, tone_wavtbl, mk_pyaudio, stop_pyaudio, read_beeps_config_file
 
-read_beeps_config_file()
+print("before reading config file")
+configs = read_beeps_config_file()
+print("after reading config file")
 
 def mk_sine_table():
     waveform = np.sin
