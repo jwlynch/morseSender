@@ -42,6 +42,10 @@ def read_beeps_config_file():
         config = ConfigParser()
 
         config.read(cfg_path)
+
+        smpl_rate = config['audio']['sample_rate']
+        dt_tm = config['audio']['dit_time']
+        frq = config['audio']['frequency']
     else:
         print("Error: No config file found")
         raise FileNotFoundError("beeps config file")
