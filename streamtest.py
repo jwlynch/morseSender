@@ -13,6 +13,14 @@ print("before reading config file")
 configs = read_beeps_config_file()
 print("after reading config file")
 
+if configs is None:
+    print("configs was None")
+    sys.exit(1)
+else:
+    sample_rate = configs['sample_rate']
+    dit_time = configs['dit_time']
+    frequency = configs['frequency']
+
 def mk_sine_table():
     waveform = np.sin
     wavetable_length = 64
