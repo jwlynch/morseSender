@@ -8,6 +8,7 @@ import sys
 import numpy as np
 
 from beeps import open_stream, close_stream, tone_wavtbl, mk_pyaudio, stop_pyaudio, read_beeps_config_file
+from alphabet import morse
 
 def dit_or_dah(s):
     if s == '.':
@@ -29,6 +30,22 @@ def play_ditdahs(s):
         for c in rest:
             el_space()
             dit_or_dah(c)
+
+def play_word(w):
+    if len(w) == 0:
+        return
+    elif len(w) == 1:
+        play_ditdahs(morse[w])
+    elif len(w) > 1:
+        first = w[0]
+        rest = w[1:]
+
+        play_ditdahs(morse[first])
+
+        for c in rest:
+            char_space()
+
+            play_ditdahs(morse[c])
 
 print("before reading config file")
 configs = read_beeps_config_file()
