@@ -47,6 +47,23 @@ def play_word(w):
 
             play_ditdahs(morse[c])
 
+def play_string(s):
+    words = s.split()
+
+    if len(words) == 0:
+        return
+    elif len(s) == 1:
+        play_ditdahs(words[0])
+    else:
+        first = words[0]
+        rest = words[1:]
+
+        play_word(first)
+
+        for w in rest:
+            word_space()
+            play_word(w)
+
 print("before reading config file")
 configs = read_beeps_config_file()
 print("after reading config file")
