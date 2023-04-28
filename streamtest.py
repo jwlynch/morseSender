@@ -15,6 +15,20 @@ def dit_or_dah(s):
     elif s == '-':
         dah()
 
+def play_ditdahs(s):
+    if len(s) == 0:
+        return
+    elif len(s) == 1:
+        dit_or_dah(s)
+    else: # more than one
+        first = s[0]
+        rest = s[1:]
+
+        dit_or_dah(first)
+
+        for c in rest:
+            el_space()
+            dit_or_dah(c)
 
 print("before reading config file")
 configs = read_beeps_config_file()
