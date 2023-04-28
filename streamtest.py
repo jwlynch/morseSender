@@ -124,23 +124,7 @@ def el_space():
     tone(stream, sample_rate, dit_time, 0)
 
 def cq():
-    dah()
-    el_space()
-    dit()
-    el_space()
-    dah()
-    el_space()
-    dit()
-
-    char_space()
-
-    dah()
-    el_space()
-    dah()
-    el_space()
-    dit()
-    el_space()
-    dah()
+    play_string("CQ CQ CQ")
 
 print("before calling cq()")
 
