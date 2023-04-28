@@ -9,6 +9,13 @@ import numpy as np
 
 from beeps import open_stream, close_stream, tone_wavtbl, mk_pyaudio, stop_pyaudio, read_beeps_config_file
 
+def dit_or_dah(s):
+    if s == '.':
+        dit()
+    elif s == '-':
+        dah()
+
+
 print("before reading config file")
 configs = read_beeps_config_file()
 print("after reading config file")
