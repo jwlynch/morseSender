@@ -59,7 +59,7 @@ def play_ditdahs(stream, s):
 def play_word(stream, w):
     if len(w) == 0:
         return
-    elif len(stream, w) == 1:
+    elif len(w) == 1:
         play_ditdahs(stream, morse_dict[w])
     elif len(w) > 1:
         first = w[0]
