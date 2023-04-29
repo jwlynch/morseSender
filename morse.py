@@ -20,3 +20,56 @@ def char_space():
 def el_space():
     tone(stream, sample_rate, dit_time, 0)
 
+def dit_or_dah(s):
+    if s == '.':
+        dit()
+    elif s == '-':
+        dah()
+
+def play_ditdahs(s):
+    if len(s) == 0:
+        return
+    elif len(s) == 1:
+        dit_or_dah(s)
+    else: # more than one
+        first = s[0]
+        rest = s[1:]
+
+        dit_or_dah(first)
+
+        for c in rest:
+            el_space()
+            dit_or_dah(c)
+
+def play_word(w):
+    if len(w) == 0:
+        return
+    elif len(w) == 1:
+        play_ditdahs(morse_dict[w])
+    elif len(w) > 1:
+        first = w[0]
+        rest = w[1:]
+
+        play_ditdahs(morse_dict[first])
+
+        for c in rest:
+            char_space()
+
+            play_ditdahs(morse_dict[c])
+
+def play_string(s):
+    words = s.split()
+
+    if len(words) == 0:
+        return
+    elif len(words) == 1:
+        play_ditdahs(words[0])
+    else:
+        first = words[0]
+        rest = words[1:]
+
+        play_word(first)
+
+        for w in rest:
+            word_space()
+            play_word(w)
