@@ -34,13 +34,13 @@ class MorsePlayer(object):
     def dah(self):
         tone(self.stream, self.sample_rate, self.dah_time, self.frequency)
 
-    def word_space(stream):
+    def word_space(self):
         tone(self.stream, self.sample_rate, self.word_space_time, 0)
 
-    def char_space(stream):
+    def char_space(self):
         tone(self.stream, self.sample_rate, self.char_space_time, 0)
 
-    def el_space(stream):
+    def el_space(self):
         tone(self.stream, self.sample_rate, self.dit_time, 0)
 
 def dit_or_dah(stream, s):
