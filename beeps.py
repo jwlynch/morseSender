@@ -65,6 +65,27 @@ def mk_sine_table():
 
     return wave_table
 
+def tone_wavtbl(wave_table, stream, sample_rate, tone_dur, tone_freq):
+    """play tone with wave in wave_table, and with specified sample rate, duration and frequency"""
+    # Length of wave table
+    wavetable_length = len(wave_table)
+
+    # Current index into sine table
+    index = 0.0
+
+    # How much to increment index for each sample
+    indexIncrement = tone_freq * wavetable_length / sample_rate
+
+    # Total number of samples to send to the stream
+    total_samples = round(tone_dur * sample_rate)
+
+    for n in range(total_samples):
+        sample_container = np.zeros((1,))
+        sample_container[0] = wave_table[int(np.floor(index))]
+        stream.write(sample_container.astype(np.float32), 1)
+        index += indexIncrement
+        index %= wavetable_length
+
 def mk_pyaudio():
     """make and return a pyaudio object"""
     py_audio = pyaudio.PyAudio()
@@ -96,24 +117,3 @@ def close_stream(stream):
     """close a stream"""
     stream.stop_stream()
     stream.close()
-
-def tone_wavtbl(wave_table, stream, sample_rate, tone_dur, tone_freq):
-    """play tone with wave in wave_table, and with specified sample rate, duration and frequency"""
-    # Length of wave table
-    wavetable_length = len(wave_table)
-
-    # Current index into sine table
-    index = 0.0
-
-    # How much to increment index for each sample
-    indexIncrement = tone_freq * wavetable_length / sample_rate
-
-    # Total number of samples to send to the stream
-    total_samples = round(tone_dur * sample_rate)
-
-    for n in range(total_samples):
-        sample_container = np.zeros((1,))
-        sample_container[0] = wave_table[int(np.floor(index))]
-        stream.write(sample_container.astype(np.float32), 1)
-        index += indexIncrement
-        index %= wavetable_length
