@@ -64,16 +64,21 @@ class MorsePlayer(object):
                 self.el_space()
                 self.dit_or_dah(c)
 
+    def play_word(self, w):
+        if len(w) == 0:
+            return
+        elif len(w) == 1:
+            self.play_ditdahs(morse_dict[w])
+        elif len(w) > 1:
+            first = w[0]
+            rest = w[1:]
 
-        for c in rest:
-            char_space(stream)
+            self.play_ditdahs(morse_dict[first])
 
-            play_ditdahs(stream, morse_dict[c])
-    def dit_or_dah(self, s):
-        if s == '.':
-            self.dit()
-        elif s == '-':
-            self.dah()
+            for c in rest:
+                self.char_space()
+
+                self.play_ditdahs(morse_dict[c])
 
 def play_string(stream, s):
     words = s.split()
