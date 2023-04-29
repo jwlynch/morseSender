@@ -43,36 +43,27 @@ class MorsePlayer(object):
     def el_space(self):
         tone(self.stream, self.sample_rate, self.dit_time, 0)
 
-def play_ditdahs(stream, s):
-    if len(s) == 0:
-        return
-    elif len(s) == 1:
-        dit_or_dah(stream, s)
-    else: # more than one
-        first = s[0]
-        rest = s[1:]
     def dit_or_dah(self, s):
         if s == '.':
             self.dit()
         elif s == '-':
             self.dah()
 
-        dit_or_dah(stream, first)
+    def play_ditdahs(self, s):
+        if len(s) == 0:
+            return
+        elif len(s) == 1:
+            self.dit_or_dah(s)
+        else: # more than one
+            first = s[0]
+            rest = s[1:]
 
-        for c in rest:
-            el_space(stream)
-            dit_or_dah(stream, c)
+            self.dit_or_dah(first)
 
-def play_word(stream, w):
-    if len(w) == 0:
-        return
-    elif len(w) == 1:
-        play_ditdahs(stream, morse_dict[w])
-    elif len(w) > 1:
-        first = w[0]
-        rest = w[1:]
+            for c in rest:
+                self.el_space()
+                self.dit_or_dah(c)
 
-        play_ditdahs(stream, morse_dict[first])
 
         for c in rest:
             char_space(stream)
