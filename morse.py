@@ -28,11 +28,11 @@ class MorsePlayer(object):
         close_stream(self.stream)
         stop_pyaudio(self.py_audio)
 
-def dit(stream):
-    tone(stream, sample_rate, dit_time, frequency)
+    def dit(self):
+        tone(self.stream, self.sample_rate, self.dit_time, self.frequency)
 
-def dah(stream):
-    tone(stream, sample_rate, dah_time, frequency)
+    def dah(self):
+        tone(self.stream, self.sample_rate, self.dah_time, self.frequency)
 
 def word_space(stream):
     tone(stream, sample_rate, word_space_time, 0)
