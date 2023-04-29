@@ -21,6 +21,8 @@ class MorsePlayer(object):
         self.word_space_time = self.dit_time * 7
         self.dah_time = self.char_space_time
 
+        self.py_audio = mk_pyaudio()
+
 def dit(stream):
     tone(stream, sample_rate, dit_time, frequency)
 
