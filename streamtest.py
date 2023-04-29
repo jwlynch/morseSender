@@ -8,7 +8,7 @@ import sys
 import numpy as np
 
 from beeps import open_stream, close_stream, tone_wavtbl, mk_pyaudio, stop_pyaudio, read_beeps_config_file
-from alphabet import morse
+from alphabet import morse_dict
 
 def dit_or_dah(s):
     if s == '.':
