@@ -23,6 +23,9 @@ class MorsePlayer(object):
 
         self.py_audio = mk_pyaudio()
 
+    def __del__(self):
+        stop_pyaudio(self.py_audio)
+
 def dit(stream):
     tone(stream, sample_rate, dit_time, frequency)
 
