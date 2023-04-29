@@ -68,7 +68,7 @@ def play_word(stream, w):
         play_ditdahs(stream, morse_dict[first])
 
         for c in rest:
-            char_space()
+            char_space(stream)
 
             play_ditdahs(stream, morse_dict[c])
 
