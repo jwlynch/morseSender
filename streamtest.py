@@ -88,21 +88,6 @@ stream = open_stream(p, sample_rate)
 
 print("done creating stream")
 
-def dit():
-    tone(stream, sample_rate, dit_time, frequency)
-
-def dah():
-    tone(stream, sample_rate, dah_time, frequency)
-
-def word_space():
-    tone(stream, sample_rate, word_space_time, 0)
-
-def char_space():
-    tone(stream, sample_rate, char_space_time, 0)
-
-def el_space():
-    tone(stream, sample_rate, dit_time, 0)
-
 def cq():
     play_string("CQ CQ CQ")
 
