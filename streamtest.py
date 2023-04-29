@@ -9,7 +9,11 @@ import numpy as np
 
 from beeps import open_stream, close_stream, tone_wavtbl, mk_pyaudio, stop_pyaudio, read_beeps_config_file
 from alphabet import morse_dict
-from morse import play_string, sample_rate, dit_time, frequency
+from morse import play_string
+
+print("before reading config file")
+configs = read_beeps_config_file()
+print("after reading config file")
 
 print("before p = pyaudio.PyAudio()")
 
@@ -23,12 +27,12 @@ stream = open_stream(p, sample_rate)
 
 print("done creating stream")
 
-def cq():
-    play_string("CQ CQ CQ")
+def cq(stream):
+    play_string(stream, "CQ CQ CQ")
 
 print("before calling cq()")
 
-cq()
+cq(stream)
 
 print("after calling cq()")
 

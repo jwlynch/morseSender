@@ -1,24 +1,25 @@
 import numpy as np
+import pyaudio
 
 from beeps import *
 from alphabet import morse_dict
 
-print("before reading config file")
-configs = read_beeps_config_file()
-print("after reading config file")
+class MorsePlayer(object):
+    def __init__(self):
+        configs = read_beeps_config_file()
 
-if configs is None:
-    print("configs was None")
-    sys.exit(1)
-else:
-    sample_rate = configs['sample_rate']
-    dit_time = configs['dit_time']
-    frequency = configs['frequency']
+        if configs is None:
+            print("configs was None")
+            sys.exit(1)
+        else:
+            self.sample_rate = configs['sample_rate']
+            self.dit_time = configs['dit_time']
+            self.frequency = configs['frequency']
 
-# dit_time comes from config file
-char_space_time = dit_time * 3
-word_space_time = dit_time * 7
-dah_time = char_space_time
+        # dit_time comes from config file
+        self.char_space_time = self.dit_time * 3
+        self.word_space_time = self.dit_time * 7
+        self.dah_time = self.char_space_time
 
 def dit(stream):
     tone(stream, sample_rate, dit_time, frequency)
