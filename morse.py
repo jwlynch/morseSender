@@ -34,14 +34,14 @@ class MorsePlayer(object):
     def dah(self):
         tone(self.stream, self.sample_rate, self.dah_time, self.frequency)
 
-def word_space(stream):
-    tone(stream, sample_rate, word_space_time, 0)
+    def word_space(stream):
+        tone(self.stream, self.sample_rate, self.word_space_time, 0)
 
-def char_space(stream):
-    tone(stream, sample_rate, char_space_time, 0)
+    def char_space(stream):
+        tone(self.stream, self.sample_rate, self.char_space_time, 0)
 
-def el_space(stream):
-    tone(stream, sample_rate, dit_time, 0)
+    def el_space(stream):
+        tone(self.stream, self.sample_rate, self.dit_time, 0)
 
 def dit_or_dah(stream, s):
     if s == '.':
