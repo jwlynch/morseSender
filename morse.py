@@ -51,6 +51,11 @@ def play_ditdahs(stream, s):
     else: # more than one
         first = s[0]
         rest = s[1:]
+    def dit_or_dah(self, s):
+        if s == '.':
+            self.dit()
+        elif s == '-':
+            self.dah()
 
         dit_or_dah(stream, first)
 
