@@ -22,8 +22,10 @@ class MorsePlayer(object):
         self.dah_time = self.char_space_time
 
         self.py_audio = mk_pyaudio()
+        self.stream = open_stream(self.py_audio, self.sample_rate)
 
     def __del__(self):
+        close_stream(self.stream)
         stop_pyaudio(self.py_audio)
 
 def dit(stream):
