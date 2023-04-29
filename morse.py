@@ -80,19 +80,19 @@ class MorsePlayer(object):
 
                 self.play_ditdahs(morse_dict[c])
 
-def play_string(stream, s):
-    words = s.split()
+    def play_string(self, s):
+        words = s.split()
 
-    if len(words) == 0:
-        return
-    elif len(words) == 1:
-        play_word(stream, words[0])
-    else:
-        first = words[0]
-        rest = words[1:]
+        if len(words) == 0:
+            return
+        elif len(words) == 1:
+            self.play_word(words[0])
+        else:
+            first = words[0]
+            rest = words[1:]
 
-        play_word(stream, first)
+            self.play_word(first)
 
-        for w in rest:
-            word_space(stream)
-            play_word(stream, w)
+            for w in rest:
+                self.word_space()
+                self.play_word(w)
