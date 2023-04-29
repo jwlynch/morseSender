@@ -78,7 +78,7 @@ def play_string(s):
     if len(words) == 0:
         return
     elif len(words) == 1:
-        play_ditdahs(words[0])
+        play_word(words[0])
     else:
         first = words[0]
         rest = words[1:]
