@@ -76,12 +76,6 @@ else:
     dit_time = configs['dit_time']
     frequency = configs['frequency']
 
-def tone(stream, sample_rate, tone_dur, tone_freq):
-    # Sine table
-    wave_table = mk_sine_table()
-
-    tone_wavtbl(wave_table, stream, sample_rate, tone_dur, tone_freq)
-
 print("before p = pyaudio.PyAudio()")
 
 p = mk_pyaudio()

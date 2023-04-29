@@ -86,6 +86,12 @@ def tone_wavtbl(wave_table, stream, sample_rate, tone_dur, tone_freq):
         index += indexIncrement
         index %= wavetable_length
 
+def tone(stream, sample_rate, tone_dur, tone_freq):
+    # Sine table
+    wave_table = mk_sine_table()
+
+    tone_wavtbl(wave_table, stream, sample_rate, tone_dur, tone_freq)
+
 def mk_pyaudio():
     """make and return a pyaudio object"""
     py_audio = pyaudio.PyAudio()
