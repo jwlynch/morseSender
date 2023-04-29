@@ -35,17 +35,17 @@ def play_word(w):
     if len(w) == 0:
         return
     elif len(w) == 1:
-        play_ditdahs(morse[w])
+        play_ditdahs(morse_dict[w])
     elif len(w) > 1:
         first = w[0]
         rest = w[1:]
 
-        play_ditdahs(morse[first])
+        play_ditdahs(morse_dict[first])
 
         for c in rest:
             char_space()
 
-            play_ditdahs(morse[c])
+            play_ditdahs(morse_dict[c])
 
 def play_string(s):
     words = s.split()
