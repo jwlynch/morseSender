@@ -56,6 +56,15 @@ def read_beeps_config_file():
     
     return result
 
+def mk_sine_table():
+    waveform = np.sin
+    wavetable_length = 64
+    wave_table = np.zeros((wavetable_length,))
+    for n in range(wavetable_length):
+        wave_table[n] = waveform(2 * np.pi * n / wavetable_length)
+
+    return wave_table
+
 def mk_pyaudio():
     """make and return a pyaudio object"""
     py_audio = pyaudio.PyAudio()
