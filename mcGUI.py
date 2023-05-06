@@ -9,8 +9,6 @@ root = Tk()
 root.title('mcSoundOutput')
 root.geometry('600x400')
 
-# mp.play_string('CQ CQ CQ')
-
 mcLabel = Label(root, text="Enter text to xmit in caps 50 chars max:")
 mcLabel.pack()
 
