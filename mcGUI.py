@@ -9,16 +9,18 @@ root = Tk()
 root.title('mcSoundOutput')
 root.geometry('600x400')
 
-def play_CQ():
-    mp.play_string('CQ CQ CQ')
-
 mcLabel = Label(root, text="Enter text to xmit in caps 50 chars max:")
 mcLabel.pack()
 
 mcTextbox = Entry(root, width=50)
 mcTextbox.pack()
 
-mcButton = Button(root, text='Submit', command=play_CQ)
+def play_textbox():
+    text = mcTextbox.get()
+    text = text.upper()
+    mp.play_string(text)
+
+mcButton = Button(root, text='Submit', command=play_textbox)
 mcButton.pack()
 
 root.mainloop()
