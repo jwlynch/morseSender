@@ -47,9 +47,22 @@ def read_beeps_config_file():
         dt_tm = config['audio']['dit_time']
         frq = config['audio']['frequency']
 
+        if config.has_section("audio"):
+        else:
+            # all defaults
+            smpl_rate = '12000' # default
+            frq = '440' # default
+            dt_tm = '.060' # default
+
         result['sample_rate'] = int(smpl_rate)
         result['dit_time'] = float(dt_tm)
         result['frequency'] = int(frq)
+
+        if config.has_section("morse"):
+        else: # no morse section in config file (so take defaults)
+            result['char_space_mult'] = 3
+            result['word_space_mult'] = 7
+            result['dah_mult'] = 3
     else:
         print("Error: No config file found")
         raise FileNotFoundError("beeps config file")
