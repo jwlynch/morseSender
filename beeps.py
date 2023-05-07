@@ -100,6 +100,10 @@ def read_beeps_config_file():
         print("Warning: No config file found")
         # all defaults for config values
     
+    smpl_rate = '12000' # default
+    frq = '440' # default
+    dt_tm = '.060' # default
+
     return result
 
 def mk_sine_table():
