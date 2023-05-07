@@ -104,6 +104,11 @@ def read_beeps_config_file():
     frq = '440' # default
     dt_tm = '.060' # default
 
+    # convert config data from strings to numeric
+    result['sample_rate'] = int(smpl_rate)
+    result['dit_time'] = float(dt_tm)
+    result['frequency'] = int(frq)
+
     return result
 
 def mk_sine_table():
