@@ -5,8 +5,8 @@ import pyaudio
 import numpy as np
 
 def read_beeps_config_file():
-    result = None # default (no config file will cause result to be None)
     """read config file. return a dict with the config params."""
+    result = {} # default
 
     # first, find config file if it exists, in one of three places:
 
