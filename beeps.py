@@ -92,6 +92,10 @@ def read_beeps_config_file():
             result['char_space_mult'] = 3
             result['word_space_mult'] = 7
             result['dah_mult'] = 3
+
+        result['char_space_time'] = result['dit_time'] * result['char_space_mult']
+        result['word_space_time'] = result['dit_time'] * result['word_space_mult']
+        result['dah_time'] = result['dit_time'] * result['dah_mult']
     else:
         print("Error: No config file found")
         raise FileNotFoundError("beeps config file")
