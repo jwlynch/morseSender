@@ -16,10 +16,9 @@ class MorsePlayer(object):
             self.dit_time = configs['dit_time']
             self.frequency = configs['frequency']
 
-        # dit_time comes from config file
-        self.char_space_time = self.dit_time * 3
-        self.word_space_time = self.dit_time * 7
-        self.dah_time = self.char_space_time
+            self.char_space_time = configs['char_space_time']
+            self.word_space_time = configs['word_space_time']
+            self.dah_time = configs['dah_time']
 
         self.py_audio = mk_pyaudio()
         self.stream = open_stream(self.py_audio, self.sample_rate)
