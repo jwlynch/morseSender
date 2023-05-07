@@ -70,6 +70,24 @@ def read_beeps_config_file():
         result['frequency'] = int(frq)
 
         if config.has_section("morse"):
+            if config.has_option('morse', 'char_space_mult'):
+                result['char_space_mult'] = int(config['morse']['char_space_mult'])
+            else:
+                # set default
+                result['char_space_mult'] = 3
+
+            if config.has_option('morse', 'word_space_mult'):
+                result['word_space_mult'] = int(config['morse']['word_space_mult'])
+            else:
+                # set default
+                result['word_space_mult'] = 7
+
+            if config.has_option('morse', 'dah_mult'):
+                result['dah_mult'] = int(config['morse']['dah_mult'])
+            else:
+                # set default
+                result['dah_mult'] = 3
+
         else: # no morse section in config file (so take defaults)
             result['char_space_mult'] = 3
             result['word_space_mult'] = 7
