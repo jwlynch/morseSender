@@ -43,11 +43,21 @@ def read_beeps_config_file():
 
         config.read(cfg_path)
 
-        smpl_rate = config['audio']['sample_rate']
-        dt_tm = config['audio']['dit_time']
-        frq = config['audio']['frequency']
-
         if config.has_section("audio"):
+            if config.has_option('audio', 'sample_rate'):
+                smpl_rate = config['audio']['sample_rate']
+            else:
+                smpl_rate = '12000' # default
+        
+            if config.has_option('audio', 'frequency'):
+                frq = config['audio']['frequency']
+            else:
+                frq = '440' # default
+
+            if config.has_option('audio', 'dit_time'):
+                dt_tm = config['audio']['dit_time']
+            else:
+                dt_tm = '.060' # default, 60 ms
         else:
             # all defaults
             smpl_rate = '12000' # default
