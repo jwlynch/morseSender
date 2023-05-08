@@ -1,0 +1,61 @@
+This readme describes the format of the
+configuration file, as well as your choices
+as to where it will be located.
+
+Where? And, what name?
+
+Your choices as to where the config file is
+located, are as follows:
+
+(1) You can place the file in the same directory
+as the running script, and if you do this, you
+have two choices as to its name:
+    (a) beeps-cfg-example.cfg or
+    (b) beeps.cfg
+Please note carefully that this location is the
+only one where you have a choice as to its name.
+
+(2) You can place the file in 
+          $HOME/.config/beeps/beeps.cfg
+and in this case, there is only one choice for
+its name: beeps.cfg .
+
+What goes in the config file?
+
+The config file will have the following sections:
+    [audio] and
+    [morse]
+
+[audio] section
+
+The audio section will have three settings:
+    sample rate = 12000
+    dit_time = 0.060 (meaning 60 milliseconds)
+    frequency = 440
+
+The morse section will also have three settings:
+    char_space_mult = 3
+    word_space_mult = 7
+    dah_mult = 3
+
+The settings you see here are the defaults, and
+if you don't have a config file, the program will
+automatically set these values.
+
+These integers will be multiplied by the
+dit_time setting (audio section) to form
+the time used by that event.
+
+Here is a sample configuration file:
+
+-- cut here --
+[audio]
+sample_rate = 12000
+dit_time = 0.060
+frequency = 440
+
+[morse]
+char_space_mult = 3
+word_space_mult = 7
+dah_mult = 3
+-- cut here --
