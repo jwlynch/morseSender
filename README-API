@@ -1,0 +1,133 @@
+This file describes the functions you can 
+use, as well as the class MorsePlayer, and
+its methods.
+
+beeps.py
+========
+
+To use the following functions, you need to
+import the beeps module.
+
+Function read_beeps_config_file():
+
+Reads and parses the configuration file, and returns
+a dict containing the configuration variables.
+
+Called from the __init__() method of the class
+MorsePlayer, it adds variables to the newly
+created object that describe the tone and
+the timing of the morse code which is generated.
+
+Function mk_sine_table():
+
+Creates and returns a table of sine values.
+
+Function tone_wavtbl():
+
+Produces a tone according to the parameters passed
+to the function. They are as follows:
+
+  - wave_table
+      table conforming to a particular function;
+      most often, the function is the sine function.
+
+  - stream
+      an open pyaudio stream object, into which samples
+      are sent.
+
+  - sample_rate
+      the rate in cycles per second at which samples are
+      expected by the stream.
+
+  - tone_dur
+      time in seconds, how long the tone should last.
+
+  - tone_freq
+      frequency in cycles per second, that describe the
+      pitch of the generated tone.
+
+Function tone():
+
+This function produces a tone using the sine function, and
+is passed all parameters passed to the tone_wavtbl function,
+except wave_table.
+
+Function mk_pyaudio():
+
+This function creates and returns a new instance of the
+PyAudio class. This object is used to produce sound using
+the sound hardware in your computer.
+
+Function stop_pyaudio():
+
+Accepts an active PyAudio object, and makes it inactive,
+freeing all resources associated with it.
+
+The only parameter that must be passed to the function, is
+py_audio, which contains the pyaudio object.
+
+Function open_stream():
+
+Creates a stream, at the sample rate specified.
+
+Parameters:
+  - py_audio
+      The PyAudio object to use for the stream.
+
+  - sample_rate
+      The sample rate to set the stream to.
+
+Function close_stream():
+
+Given a stream object, frees all resources allocated to it.
+
+Class MorsePlayer:
+
+This class is in morse.py, and you can import it from that module.
+
+  Method __init__():
+    Reads the beeps config file, putting all its variables into the
+    object instance, and makes a PyAudio object and a stream object,
+    also putting those into the instance.
+
+  Method __del__():
+    frees all resources allocated to the instance, including the
+    pyaudio stream, and the PyAudio object.
+
+  Method dit():
+    plays a tone for the dit_time duration.
+
+  Method dah():
+    plays a tone for the dah_time duration.
+
+  Method word_space():
+    plays silence for the word_space_time duration.
+
+  Method char_space():
+    plays silence for the char_space_time duration.
+
+  Method el_space():
+    plays silence for the el_space_time duration.
+
+  Method dit_or_dah(): 
+    plays a dit or a dah, according to the incoming string:
+    If "-", it plays a dah, if ".", it plays a dit.
+
+    called by: play_ditdahs().
+
+  Method play_ditdahs():
+    plays a sequence of dits and dahs, according to the incoming
+    string.
+
+    called by: play_word()
+
+  Method play_word():
+    plays a single word (can't handle spaces)
+
+    called by: play_string()
+
+  Method play_string():
+    plays a series of words.
+
+    called by: you! (the other play_ methods are helpers, this
+    method is meant for the user to call.)
