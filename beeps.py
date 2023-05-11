@@ -4,6 +4,15 @@ from configparser import ConfigParser
 import pyaudio
 import numpy as np
 
+# index of item in list, or -1 if ValueError
+def dex(item, lst):
+    result = -1
+
+    try:
+        result = lst.index(item)
+    finally:
+        return result
+
 def read_beeps_config_file():
     """read config file. return a dict with the config params."""
     result = {} # default
