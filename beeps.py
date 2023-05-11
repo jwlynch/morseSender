@@ -135,11 +135,11 @@ def read_beeps_config_file():
         result['dah_time'] = result['dit_time'] * result['dah_mult']
     else:
         print("Warning: No config file found")
-        # all defaults for config values
-    
-    smpl_rate = '12000' # default
-    frq = '440' # default
-    dt_tm = '.060' # default
+
+        # all defaults for config values    
+        smpl_rate = '12000' # default
+        frq = '440' # default
+        dt_tm = '.060' # default
 
     # convert config data from strings to numeric
     result['sample_rate'] = int(smpl_rate)
