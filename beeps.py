@@ -146,6 +146,9 @@ def read_beeps_config_file():
     result['dit_time'] = float(dt_tm)
     result['frequency'] = int(frq)
 
+    if debug_readConfig:
+        print_config_dict(result)
+
     return result
 
 def mk_sine_table():
