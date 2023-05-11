@@ -13,6 +13,15 @@ def dex(item, lst):
     finally:
         return result
 
+class DebugInfo(object):
+    def __init__(self):
+        self.debugSects = ["CfgFile"]
+
+    def debugSectsContains(self, sectName):
+        result = dex(sectName, self.debugSects) != -1
+
+        return result
+
 def read_beeps_config_file():
     """read config file. return a dict with the config params."""
     result = {} # default
