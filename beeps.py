@@ -4,7 +4,44 @@ from configparser import ConfigParser
 import pyaudio
 import numpy as np
 
+# index of item in list, or -1 if ValueError
+def dex(item, lst):
+    result = -1
+
+    try:
+        result = lst.index(item)
+    finally:
+        return result
+
+class DebugInfo(object):
+    def __init__(self):
+        self.debugSects = ["CfgFile"]
+
+    def debugSectsContains(self, sectName):
+        result = dex(sectName, self.debugSects) != -1
+
+        return result
+
+global di
+di = DebugInfo()
+
+def print_config_dict(configDict):
+    cd = configDict
+
+    print("Values from config file:")
+    print("  audio section")
+    print(f"    sample rate: {cd['sample_rate']}")
+    print(f"    frequency: {cd['frequency']}")
+    print(f"    dit_time: {cd['dit_time']}")
+    print("  morse section")
+    print(f"    char_space_mult: {cd['char_space_mult']} (char_space_time: {cd['char_space_time']})")
+    print(f"    dah_mult: {cd['dah_mult']} (dah_time: {cd['dah_time']})")
+    print(f"    word_space_mult: {cd['word_space_mult']} (word_space_time: {cd['word_space_time']})")
+
 def read_beeps_config_file():
+    # what kind of debugging we're doing
+    debug_readConfig = di.debugSectsContains("CfgFile")
+
     """read config file. return a dict with the config params."""
     result = {} # default
 
@@ -98,16 +135,19 @@ def read_beeps_config_file():
         result['dah_time'] = result['dit_time'] * result['dah_mult']
     else:
         print("Warning: No config file found")
-        # all defaults for config values
-    
-    smpl_rate = '12000' # default
-    frq = '440' # default
-    dt_tm = '.060' # default
+
+        # all defaults for config values    
+        smpl_rate = '12000' # default
+        frq = '440' # default
+        dt_tm = '.060' # default
 
     # convert config data from strings to numeric
     result['sample_rate'] = int(smpl_rate)
     result['dit_time'] = float(dt_tm)
     result['frequency'] = int(frq)
+
+    if debug_readConfig:
+        print_config_dict(result)
 
     return result
 
