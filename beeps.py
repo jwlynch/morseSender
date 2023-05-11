@@ -39,6 +39,9 @@ def print_config_dict(configDict):
     print(f"    word_space_mult: {cd['word_space_mult']} (word_space_time: {cd['word_space_time']})")
 
 def read_beeps_config_file():
+    # what kind of debugging we're doing
+    debug_readConfig = di.debugSectsContains("CfgFile")
+
     """read config file. return a dict with the config params."""
     result = {} # default
 
