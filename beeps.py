@@ -23,6 +23,7 @@ class DebugInfo(object):
         return result
 
 global di
+di = DebugInfo()
 
 def print_config_dict(configDict):
     cd = configDict
