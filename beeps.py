@@ -22,6 +22,8 @@ class DebugInfo(object):
 
         return result
 
+global di
+
 def print_config_dict(configDict):
     cd = configDict
 
