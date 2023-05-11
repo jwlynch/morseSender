@@ -22,6 +22,19 @@ class DebugInfo(object):
 
         return result
 
+def print_config_dict(configDict):
+    cd = configDict
+
+    print("Values from config file:")
+    print("  audio section")
+    print(f"    sample rate: {cd['sample_rate']}")
+    print(f"    frequency: {cd['frequency']}")
+    print(f"    dit_time: {cd['dit_time']}")
+    print("  morse section")
+    print(f"    char_space_mult: {cd['char_space_mult']} (char_space_time: {cd['char_space_time']})")
+    print(f"    dah_mult: {cd['dah_mult']} (dah_time: {cd['dah_time']})")
+    print(f"    word_space_mult: {cd['word_space_mult']} (word_space_time: {cd['word_space_time']})")
+
 def read_beeps_config_file():
     """read config file. return a dict with the config params."""
     result = {} # default
