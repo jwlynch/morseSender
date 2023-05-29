@@ -15,7 +15,8 @@ def dex(item, lst):
 
 class DebugInfo(object):
     def __init__(self):
-        self.debugSects = ["CfgFile"]
+#        self.debugSects = ["CfgFile"]      # to turn on debugging of config file section
+        self.debugSects = []
 
     def debugSectsContains(self, sectName):
         result = dex(sectName, self.debugSects) != -1
