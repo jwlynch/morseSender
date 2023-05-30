@@ -14,3 +14,6 @@ str_to_send = " ".join(list_to_send)
 mp = MorsePlayer()
 
 mp.play_string(str_to_send)
+
+print("answers:")
+print(f"{str_to_send}")
