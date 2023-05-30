@@ -4,6 +4,10 @@ import os, re
 
 def mk_word_list():
 
+    # create empty sqlite database
+
+    # add table to the database, with col for word, and col (primary key) for index
+
     word_list_pathlist = [os.path.sep, "usr", "share", "dict", "american-english"]
 
     word_list_filename = os.path.join(*word_list_pathlist)
