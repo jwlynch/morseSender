@@ -20,6 +20,7 @@ def mk_word_list():
     return word_list
 
 if __name__ == '__main__':
-    word_list = mk_word_list()
+    pass
+    #word_list = mk_word_list()
 
-    print(repr(word_list[:125]))
+    #print(repr(word_list[:125]))
