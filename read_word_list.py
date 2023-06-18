@@ -6,6 +6,9 @@ def mk_word_list(match_str=None):
 
     if match_str is None:
         match_str = 'a-z'
+    
+    matcher = re.compile( f'^[{match_str}]+$' )
+
     word_list_pathlist = [os.path.sep, "usr", "share", "dict", "american-english"]
 
     word_list_filename = os.path.join(*word_list_pathlist)
