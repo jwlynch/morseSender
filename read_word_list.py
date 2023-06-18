@@ -19,6 +19,7 @@ def mk_word_list(match_str=None):
         for w in word_list_h:
             a_word = w.strip().lower()
 
+            if re.match(matcher, a_word):
                 word_list.append(a_word)
 
     return word_list
