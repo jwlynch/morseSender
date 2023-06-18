@@ -2,6 +2,13 @@
 
 import os, re
 
+# param lvl should range from 1 to 9
+
+def mk_intl_morse_str(lvl):
+    intl_list = ['eti5', 'man0', 'sor1', 'kdw2', 'vug8', 'hbf9', 'pcq3', 'yjl4', 'xz7']
+
+    return "".join(intl_list[:lvl])
+
 def mk_word_list(match_str=None):
 
     if match_str is None:
