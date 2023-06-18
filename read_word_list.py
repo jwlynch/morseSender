@@ -17,7 +17,7 @@ def mk_word_list(match_str=None):
 
     with open(word_list_filename, 'r') as word_list_h:
         for w in word_list_h:
-            a_word = w.strip()
+            a_word = w.strip().lower()
 
             if re.match('^[A-Za-z]+$', a_word) and len(a_word) == 5:
                 word_list.append(a_word)
