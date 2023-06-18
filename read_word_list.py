@@ -2,7 +2,7 @@
 
 import os, re
 
-def mk_word_list():
+def mk_word_list(match_str=None):
 
     word_list_pathlist = [os.path.sep, "usr", "share", "dict", "american-english"]
 
