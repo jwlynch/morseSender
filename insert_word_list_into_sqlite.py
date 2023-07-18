@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 
-import os, re
+import os, re, sqlite3
 
 def mk_word_list():
 
