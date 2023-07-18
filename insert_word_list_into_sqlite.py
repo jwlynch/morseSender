@@ -10,7 +10,10 @@ def opendb():
 
     return conn
 
+def get_cursor(conn):
+    c = conn.cursor()
 
+    return c
 
 def mk_word_list(conn, c):
 
