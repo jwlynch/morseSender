@@ -41,6 +41,12 @@ def mk_word_list(conn, c):
 
                 conn.commit()
 
+def get_word(conn, c):
+    c.execute(f"select word, idex from words where idex = 3000")
+
+    row = c.fetchone()
+
+    return row[0]
 
 if __name__ == '__main__':
     pass
