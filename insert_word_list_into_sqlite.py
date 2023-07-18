@@ -49,7 +49,15 @@ def get_word(conn, c):
     return row[0]
 
 if __name__ == '__main__':
-    pass
-    #word_list = mk_word_list()
+    
+    # create empty sqlite database
+    conn = opendb()
+    c = get_cursor(conn)
+
+    #mk_word_list(conn, c)
 
     #print(repr(word_list[:125]))
+
+    word = get_word(conn, c)
+
+print(word)
