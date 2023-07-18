@@ -3,10 +3,15 @@
 import os, re, sqlite3
 
 def mk_word_list():
+def opendb():
+    word_list_db_pathlist = [os.path.expanduser('~'), 'sqlite-dbs', 'amer_engl_wordlist.db']
+    word_list_db_filename = os.path.join(*word_list_db_pathlist)
 
     # create empty sqlite database
+    conn = sqlite3.connect(word_list_db_filename)
 
     # add table to the database, with col for word, and col (primary key) for index
+    return conn
 
     word_list_pathlist = [os.path.sep, "usr", "share", "dict", "american-english"]
 
